@@ -438,5 +438,29 @@
       closeModal();
     }
   });
+  /* ============================================================
+     EFEITO DE DESFOQUE AO SEGURAR TECLA (PC)
+     ============================================================ */
+  let isKeyDown = false;
 
+  document.addEventListener('keydown', (e) => {
+    // Impede o desfoque se o usuário estiver digitando no input de senha
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+    // Se a tecla já está pressionada, não faz nada (evita bug de repetição)
+    if (isKeyDown) return;
+    
+    // Ignora teclas como Shift, Control, etc, se quiser (opcional)
+    // if (e.key === 'Shift' || e.key === 'Control') return;
+
+    isKeyDown = true;
+    document.body.classList.add('is-focusing');
+  });
+
+  document.addEventListener('keyup', (e) => {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+    isKeyDown = false;
+    document.body.classList.remove('is-focusing');
+  });
 })();
