@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fundamentos de Informática — Curso Interativo</title>
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- FORMAS GEOMÉTRICAS DE FUNDO -->
+  <div class="bg-shapes" aria-hidden="true">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+    <div class="shape shape-4"></div>
+  </div>
+
+  <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <div class="app-layout">
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="brand">
+          <img src="img/logo.png" alt="Logo Fundamentos de TI" class="brand-logo">
+          <div class="brand-text">
+            <strong>Fundamentos de TI</strong>
+            <small>Curso Completo</small>
+          </div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav" id="sidebarNav">
+        <div class="active-bg-slider" id="activeBgSlider"></div>
+
+        <div class="nav-section">
+          <a href="#home" class="nav-item active" data-target="home">
+            <span class="nav-icon home-icon"></span>
+            Visão Geral
+          </a>
+        </div>
+
+        <div class="nav-module" data-module="modulo1">
+          <button class="module-header" aria-expanded="false">
+            <span class="module-num">01</span>
+            <span class="module-title">O computador moderno</span>
+            <span class="chevron"></span>
+          </button>
+          <div class="module-topics">
+            <a href="#modulo1" class="topic-item" data-target="modulo1">Introdução</a>
+            <a href="#m1-informatica" class="topic-item" data-target="m1-informatica">O que é Informática e TI</a>
+            <a href="#m1-turing" class="topic-item" data-target="m1-turing">O Bit e a Máquina de Turing</a>
+            <a href="#m1-ciclo" class="topic-item" data-target="m1-ciclo">Funcionamento Básico</a>
+            <a href="#m1-hardware-software" class="topic-item" data-target="m1-hardware-software">Hardware e Software</a>
+            <a href="#m1-historia" class="topic-item" data-target="m1-historia">História da Computação</a>
+          </div>
+        </div>
+
+        <div class="nav-module" data-module="modulo2">
+          <button class="module-header" aria-expanded="false">
+            <span class="module-num">02</span>
+            <span class="module-title">As partes de um computador</span>
+            <span class="chevron"></span>
+          </button>
+          <div class="module-topics">
+            <a href="#modulo2" class="topic-item" data-target="modulo2">Introdução</a>
+            <a href="#m2-formas" class="topic-item" data-target="m2-formas">As várias formas de um PC</a>
+            <a href="#m2-placa" class="topic-item" data-target="m2-placa">Placa-mãe e Processador</a>
+            <a href="#m2-gpu" class="topic-item" data-target="m2-gpu">A GPU (Processamento Gráfico)</a>
+            <a href="#m2-ram" class="topic-item" data-target="m2-ram">Memória RAM</a>
+            <a href="#m2-armazenamento" class="topic-item" data-target="m2-armazenamento">Armazenamento</a>
+            <a href="#m2-perifericos" class="topic-item" data-target="m2-perifericos">Periféricos</a>
+            <!-- LINK MOVIDO PARA O FINAL -->
+            <a href="#m2-outros" class="topic-item" data-target="m2-outros">Gabinete, Fonte, Cooler e Vídeo</a>
+          </div>
+        </div>
+
+        <div class="nav-module" data-module="modulo3">
+          <button class="module-header" aria-expanded="false">
+            <span class="module-num">03</span>
+            <span class="module-title">Computadores na nuvem</span>
+            <span class="chevron"></span>
+          </button>
+          <div class="module-topics">
+            <a href="#modulo3" class="topic-item" data-target="modulo3">Introdução</a>
+            <a href="#m3-local-vs-nuvem" class="topic-item" data-target="m3-local-vs-nuvem">Local vs Nuvem</a>
+            <a href="#m3-historico" class="topic-item" data-target="m3-historico">Histórico e Cargas</a>
+            <a href="#m3-exemplos" class="topic-item" data-target="m3-exemplos">Exemplos de Uso</a>
+          </div>
+        </div>
+
+        <div class="nav-module" data-module="modulo4">
+          <button class="module-header" aria-expanded="false">
+            <span class="module-num">04</span>
+            <span class="module-title">Software e instruções</span>
+            <span class="chevron"></span>
+          </button>
+          <div class="module-topics">
+            <a href="#modulo4" class="topic-item" data-target="modulo4">Introdução</a>
+            <a href="#m4-so" class="topic-item" data-target="m4-so">Sistema Operacional</a>
+            <a href="#m4-arquivos" class="topic-item" data-target="m4-arquivos">Arquivos e Pastas</a>
+            <a href="#m4-nuvem" class="topic-item" data-target="m4-nuvem">Software na Nuvem (Animação)</a>
+          </div>
+        </div>
+
+        <div class="nav-module" data-module="modulo5">
+          <button class="module-header" aria-expanded="false">
+            <span class="module-num">05</span>
+            <span class="module-title">Identidade e segurança</span>
+            <span class="chevron"></span>
+          </button>
+          <div class="module-topics">
+            <a href="#modulo5" class="topic-item" data-target="modulo5">Introdução</a>
+            <a href="#m5-identidade" class="topic-item" data-target="m5-identidade">Identidade Digital</a>
+            <a href="#m5-seguranca" class="topic-item" data-target="m5-seguranca">Segurança e Força da Senha</a>
+            <a href="#m5-futuro" class="topic-item" data-target="m5-futuro">O Futuro (Biometria)</a>
+          </div>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="main-content" id="mainContent">
+      <div class="progress-bar" id="progressBar"></div>
+
+      <!-- HOME -->
+      <section id="home" class="page-content hero-section">
+        <div class="circuit-bg" aria-hidden="true"></div>
+        <div class="content-wrapper">
+          <p class="eyebrow">Visão Geral do Curso</p>
+          <h1>Noções básicas de<br><span class="accent">computação</span></h1>
+          <p class="lead">Bem-vindo! Explore os 5 módulos na barra lateral para acessar todo o conteúdo sobre hardware, software, nuvem e segurança.</p>
+          <div class="hero-stats">
+            <div class="stat"><span class="stat-num">05</span><span class="stat-label">Módulos</span></div>
+            <div class="stat"><span class="stat-num">21</span><span class="stat-label">Tópicos</span></div>
+          </div>
+          <div class="trail">
+            <p class="section-kicker">Trilha de Aprendizagem</p>
+            <div class="trail-grid">
+              <a href="#modulo1" class="trail-card"><span class="trail-num">01</span><h3>O computador moderno</h3><p>Conceitos, funcionamento e componentes.</p></a>
+              <a href="#modulo2" class="trail-card"><span class="trail-num">02</span><h3>As partes de um computador</h3><p>Peças, encaixe e função de cada parte.</p></a>
+              <a href="#modulo3" class="trail-card"><span class="trail-num">03</span><h3>Computadores na nuvem</h3><p>Infraestrutura remota e serviços.</p></a>
+              <a href="#modulo4" class="trail-card"><span class="trail-num">04</span><h3>Como o software dá instruções</h3><p>A comunicação entre software e hardware.</p></a>
+              <a href="#modulo5" class="trail-card"><span class="trail-num">05</span><h3>Identidade e segurança</h3><p>Proteção de dados e acesso em sistemas.</p></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MÓDULO 1 -->
+      <section id="modulo1" class="page-content">
+        <div class="content-wrapper">
+          <p class="section-kicker">Módulo 01</p>
+          <h2>O computador moderno</h2>
+          <p class="section-intro">Entenda o que é informática, a origem dos computadores digitais e a diferença entre seus componentes físicos e lógicos.</p>
+          
+          <div id="m1-informatica" class="topic-block">
+            <h3>O que é informática e TI</h3>
+            <div class="grid-2">
+              <article class="card"><h4>Informática</h4><p>Do francês <em>informatique</em>: informação + automática. Trata do processamento de dados por computadores — transformar entrada bruta em informação útil.</p></article>
+              <article class="card"><h4>Tecnologia da Informação (TI)</h4><p>Área ampla que integra infraestrutura, sistemas, segurança e processos. Aplica a informática em organizações e na vida cotidiana.</p></article>
+            </div>
+            <img src="img/cotidiano.png" alt="Aplicações da Informática no Cotidiano" class="img-real">
+          </div>
+
+          <div id="m1-turing" class="topic-block">
+            <h3>O Bit e a Máquina de Turing</h3>
+            <p class="section-intro">Na década de 1930, o matemático Alan Turing descobriu que o processamento pode ser feito com apenas dois dígitos: 0 e 1. Essa unidade é chamada de <strong>Bit</strong>.</p>
+            
+            <div class="grid-2">
+              <article class="card">
+                <h4>O poder dos Bits</h4>
+                <p>Um bit só tem dois estados (ligado/desligado). Mas quando combinamos bits, o poder cresce exponencialmente:</p>
+                <ul class="list">
+                  <li><strong>2 bits:</strong> 4 estados</li>
+                  <li><strong>4 bits:</strong> 16 estados</li>
+                  <li><strong>8 bits:</strong> 256 estados (1 Byte)</li>
+                </ul>
+              </article>
+              
+              <article class="card accent-card">
+                <h4>Medidas de Armazenamento</h4>
+                <table class="data-table">
+                  <tr><th>Nome</th><th>Valor</th></tr>
+                  <tr><td>Byte</td><td>8 bits</td></tr>
+                  <tr><td>Kilobyte (KB)</td><td>1.024 bytes</td></tr>
+                  <tr><td>Megabyte (MB)</td><td>1.048.576 bytes</td></tr>
+                  <tr><td>Gigabyte (GB)</td><td>1.073.741.824 bytes</td></tr>
+                </table>
+              </article>
+            </div>
+          </div>
+
+          <div id="m1-ciclo" class="topic-block">
+            <h3>Funcionamento básico do computador</h3>
+            <p class="section-intro">Todo computador executa o mesmo ciclo: recebe dados, processa, armazena e devolve resultados.</p>
+            <div class="cycle" id="cycle">
+              <button class="cycle-step active" data-cycle="entrada"><span class="cycle-icon"></span><span class="cycle-title">Entrada</span><span class="cycle-desc">Dados chegam por teclado, mouse, sensores.</span></button>
+              <button class="cycle-step" data-cycle="processamento"><span class="cycle-icon"></span><span class="cycle-title">Processamento</span><span class="cycle-desc">A CPU executa instruções sobre os dados.</span></button>
+              <button class="cycle-step" data-cycle="armazenamento"><span class="cycle-icon"></span><span class="cycle-title">Armazenamento</span><span class="cycle-desc">Dados e resultados são guardados.</span></button>
+              <button class="cycle-step" data-cycle="saida"><span class="cycle-icon"></span><span class="cycle-title">Saída</span><span class="cycle-desc">Resultados aparecem em tela, impressora.</span></button>
+            </div>
+            <div class="cycle-display" id="cycleDisplay"><p>Selecione uma etapa do ciclo para ver o detalhe.</p></div>
+          </div>
+
+          <div id="m1-hardware-software" class="topic-block">
+            <h3>Hardware e software</h3>
+            <div class="grid-2">
+              <article class="card accent-card">
+                <h4>Hardware</h4>
+                <p>A parte física: tudo o que se pode tocar.</p>
+                <ul class="list"><li>Processador (CPU)</li><li>Memória RAM</li><li>Placa-mãe</li><li>HD / SSD</li></ul>
+                <img src="img/hardware.png" alt="Componentes de Hardware" class="img-card">
+              </article>
+              <article class="card accent-card">
+                <h4>Software</h4>
+                <p>A parte lógica: instruções e programas.</p>
+                <ul class="list"><li>Sistema operacional</li><li>Navegador e editores</li><li>Aplicativos de escritório</li><li>Drivers de dispositivos</li></ul>
+                <img src="img/software.jpg" alt="Código de Software" class="img-card">
+              </article>
+            </div>
+          </div>
+
+          <div id="m1-historia" class="topic-block">
+            <h3>Um pouco da história da Computação</h3>
+            <p class="section-intro">A computação evoluiu do trabalho de matemáticos para se tornar onipresente. Clique nos marcos abaixo:</p>
+            
+            <div class="history-accordion">
+              <div class="history-item">
+                <button class="history-header">O Início (Século XIX)</button>
+                <div class="history-content">
+                  <p>Começou com a ideia de programar máquinas para cálculos. <strong>Ada Lovelace</strong> é considerada a primeira programadora, escrevendo algoritmos em 1848.</p>
+                </div>
+              </div>
+              <div class="history-item">
+                <button class="history-header">Primeiras Máquinas (Século XX)</button>
+                <div class="history-content">
+                  <p>Alan Turing introduziu a máquina de 0s e 1s. <strong>Grace Hopper</strong> criou a primeira linguagem de computador (COBOL). Os primeiros computadores eram <em>mainframes</em> que usavam cartões perfurados.</p>
+                </div>
+              </div>
+              <div class="history-item">
+                <button class="history-header">Computação Pessoal (Anos 70 e 80)</button>
+                <div class="history-content">
+                  <p>Steve Jobs e Steve Wozniak lançaram o Apple. Bill Gates e Paul Allen criaram o MS-DOS. Surgiram os disquetes e as interfaces gráficas.</p>
+                </div>
+              </div>
+              <div class="history-item">
+                <button class="history-header">Interconectividade (Anos 90)</button>
+                <div class="history-content">
+                  <p>A Internet evoluiu de redes militares/acadêmicas para o mundo todo. Tim Berners-Lee criou a World Wide Web. O Wi-Fi e o Bluetooth surgiram para conectar dispositivos sem fio.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MÓDULO 2 -->
+      <section id="modulo2" class="page-content">
+        <div class="content-wrapper">
+          <p class="section-kicker">Módulo 02</p>
+          <h2>As partes de um computador</h2>
+          <p class="section-intro">Conheça os componentes internos, a memória, o armazenamento e os periféricos que conectam o usuário à máquina.</p>
+          
+          <div id="m2-formas" class="topic-block">
+            <h3>As várias formas de um computador</h3>
+            <p class="section-intro">Quando pensamos em computadores, imaginamos laptops ou desktops. Mas eles estão em todos os lugares: TVs, geladeiras, carros e lâmpadas inteligentes.</p>
+            <div class="callout">
+              <span class="callout-label">Você sabia?</span>
+              <p>Um telefone celular moderno é mais de <strong>1.000 vezes mais rápido</strong> que o computador Univac 1 de 1951, que ocupava uma sala inteira.</p>
+            </div>
+            <img src="img/formas-computador.png" alt="Desktop, Servidor e Celular" class="img-real">
+          </div>
+
+          <div id="m2-placa" class="topic-block">
+            <h3>Placa-mãe e Processador</h3>
+            <div class="grid-2">
+              <article class="card">
+                <h4>Placa-mãe</h4>
+                <p>É a base de interligação. Conecta processador, memória, armazenamento e periféricos, permitindo que troquem dados entre si.</p>
+                <img src="img/placa-mae.png" alt="Placa-mãe" class="img-card">
+              </article>
+              <article class="card">
+                <h4>Processador (CPU)</h4>
+                <p>Executa instruções e cálculos. Sua velocidade e número de núcleos influenciam diretamente o desempenho do sistema.</p>
+                <img src="img/processador.png" alt="Processador (CPU)" class="img-card">
+              </article>
+            </div>
+          </div>
+
+          <div id="m2-gpu" class="topic-block">
+            <h3>A GPU (Unidade de Processamento Gráfico)</h3>
+            <p class="section-intro">A GPU cria o que você vê na tela. Ela é otimizada para processamento gráfico, que é altamente complexo. Veja a diferença física:</p>
+            
+            <div class="compare">
+              <article class="compare-col cpu">
+                <h4>CPU (Processador)</h4>
+                <ul class="list">
+                  <li>Foco geral (executa o sistema inteiro)</li>
+                  <li>Possui poucos núcleos (ex: 4, 8 ou 16)</li>
+                  <li>Rápida em tarefas sequenciais</li>
+                </ul>
+                <img src="img/cpu.png" alt="Chip da CPU" class="img-card">
+              </article>
+              <article class="compare-col cloud">
+                <h4>GPU (Gráfica)</h4>
+                <ul class="list">
+                  <li>Foco restrito a imagens e cálculos complexos</li>
+                  <li>Possui milhares de núcleos menores</li>
+                  <li>Muito rápida em tarefas paralelas</li>
+                </ul>
+                <img src="img/gpu.png" alt="Placa de Vídeo (GPU)" class="img-card">
+              </article>
+            </div>
+          </div>
+
+          <div id="m2-ram" class="topic-block">
+            <h3>Memória RAM</h3>
+            <div class="ram-demo">
+              <div class="ram-controls">
+                <p>A RAM é a memória de trabalho: guarda temporariamente os programas e dados em uso. Quanto mais RAM, mais programas podem rodar ao mesmo tempo sem lentidão.</p>
+                <label class="range-label" for="ramSlider">Programas abertos: <strong id="ramCount">2</strong></label>
+                <input type="range" id="ramSlider" min="1" max="8" value="2" step="1">
+                <p class="ram-status" id="ramStatus">Memória disponível. Execução fluida.</p>
+              </div>
+              <div class="ram-slots" id="ramSlots" aria-hidden="true"></div>
+            </div>
+            <img src="img/memoria-ram.png" alt="Pente de Memória RAM" class="img-real" style="margin-top: 24px;">
+          </div>
+
+          <div id="m2-armazenamento" class="topic-block">
+            <h3>Armazenamento: HD, SSD e Externos</h3>
+            <div class="storage-grid">
+              <article class="storage-card">
+                <h4>HD (Disco Rígido)</h4>
+                <p>Usa pratos magnéticos. Grande capacidade a custo baixo.</p>
+                <img src="img/hd.png" alt="HD" class="img-card">
+              </article>
+              <article class="storage-card">
+                <h4>SSD (Estado Sólido)</h4>
+                <p>Usa memória flash, sem partes móveis. Muito mais rápido que o HD.</p>
+                <img src="img/ssd.png" alt="SSD" class="img-card">
+              </article>
+              <article class="storage-card">
+                <h4>Externos</h4>
+                <p>Pendrives e HDs externos conectados por USB. Portáveis e práticos.</p>
+                <img src="img/pendrive.png" alt="Pendrive / HD Externo" class="img-card">
+              </article>
+            </div>
+          </div>
+
+          <div id="m2-perifericos" class="topic-block">
+            <h3>Periféricos</h3>
+            <div class="periph-tabs" id="periphTabs">
+              <button class="tab active" data-tab="entrada">Entrada</button>
+              <button class="tab" data-tab="saida">Saída</button>
+              <button class="tab" data-tab="ambos">Entrada e Saída</button>
+            </div>
+            <div class="periph-panel">
+              <div class="periph-content active" data-panel="entrada">
+                <p>Enviam dados do usuário ou do ambiente para o computador.</p>
+                <div class="pill-grid periph-list">
+                  <button class="pill" data-periph="teclado">Teclado</button><button class="pill" data-periph="mouse">Mouse</button><button class="pill" data-periph="scanner">Scanner</button><button class="pill" data-periph="microfone">Microfone</button><button class="pill" data-periph="webcam">Webcam</button>
+                </div>
+                <div class="periph-display" id="periphDisplayEntrada"></div>
+              </div>
+              <div class="periph-content" data-panel="saida">
+                <p>Mostram ou emitem os resultados produzidos pelo computador.</p>
+                <div class="pill-grid periph-list">
+                  <button class="pill" data-periph="monitor">Monitor</button><button class="pill" data-periph="impressora">Impressora</button><button class="pill" data-periph="caixas-som">Caixas de som</button><button class="pill" data-periph="projetor">Projetor</button>
+                </div>
+                <div class="periph-display" id="periphDisplaySaida"></div>
+              </div>
+              <div class="periph-content" data-panel="ambos">
+                <p>Fazem as duas coisas: enviam e recebem dados.</p>
+                <div class="pill-grid periph-list">
+                  <button class="pill" data-periph="touchscreen">Tela Touchscreen</button><button class="pill" data-periph="modem">Modem</button><button class="pill" data-periph="placa-rede">Placa de Rede</button><button class="pill" data-periph="multifuncional">Multifuncional</button>
+                </div>
+                <div class="periph-display" id="periphDisplayAmbos"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- OUTROS COMPONENTES (MOVIDO PARA CÁ) -->
+          <div id="m2-outros" class="topic-block">
+            <h3>Outros Componentes Essenciais</h3>
+            <p class="section-intro">Além da placa-mãe e do processador, um computador precisa de uma estrutura física, energia e refrigeração para funcionar.</p>
+            
+            <div class="grid-2">
+              <article class="card">
+                <h4>Gabinete</h4>
+                <p>A "casa" do computador. Protege e organiza os componentes internos (placa-mãe, HDs, fonte) e ajuda no fluxo de ar para refrigeração.</p>
+                <img src="img/gabinete.png" alt="Gabinete de Computador" class="img-card">
+              </article>
+              
+              <article class="card">
+                <h4>Fonte de Alimentação</h4>
+                <p>Converte a energia da tomada (corrente alternada) na energia que os componentes precisam (corrente contínua). É o "coração" elétrico do PC.</p>
+                <img src="img/fonte.png" alt="Fonte de Alimentação" class="img-card">
+              </article>
+
+              <article class="card">
+                <h4>Cooler</h4>
+                <p>Sistema de refrigeração (ventoinhas e dissipadores). Essencial para evitar que o processador e a placa de vídeo superaqueçam e danifiquem.</p>
+                <img src="img/cooler.png" alt="Cooler / Ventoinha" class="img-card">
+              </article>
+
+              <article class="card">
+                <h4>Placa de Vídeo (GPU Dedicada)</h4>
+                <p>Componente responsável por processar e renderizar imagens, vídeos e jogos. Essencial para tarefas gráficas pesadas e design.</p>
+                <img src="img/placa-video.png" alt="Placa de Vídeo" class="img-card">
+              </article>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- MÓDULO 3 -->
+      <section id="modulo3" class="page-content">
+        <div class="content-wrapper">
+          <p class="section-kicker">Módulo 03</p>
+          <h2>Computadores na nuvem</h2>
+          <p class="section-intro">Entenda a diferença entre a computação local e a nuvem, e como a infraestrutura remota mudou a história.</p>
+          
+          <div id="m3-local-vs-nuvem" class="topic-block">
+            <div class="compare">
+              <article class="compare-col local"><h4>Computação Local</h4><ul class="list"><li>Dados no próprio dispositivo</li><li>Funciona sem internet</li><li>Controle direto do equipamento</li><li>Limitação de espaço e desempenho</li></ul></article>
+              <article class="compare-col cloud"><h4>Computação em Nuvem</h4><ul class="list"><li>Acesso pela internet</li><li>Escala conforme a demanda</li><li>Sincronização entre dispositivos</li><li>Depende de conexão</li></ul></article>
+            </div>
+            <img src="img/nuvem.png" alt="Data Center ou Conceito de Nuvem" class="img-real">
+          </div>
+
+          <div id="m3-historico" class="topic-block">
+            <h3>Histórico e Cargas de Trabalho</h3>
+            <div class="card">
+              <p>Nos primórdios, os computadores se comunicavam em rede para serem mais poderosos.</p>
+              <ul class="list">
+                <li><strong>Mainframes e Terminais:</strong> Grandes computadores processavam o trabalho e enviavam o resultado para telas e teclados simples.</li>
+                <li><strong>Escalabilidade:</strong> A capacidade de aumentar ou diminuir o poder de processamento e armazenamento conforme a necessidade.</li>
+                <li><strong>Separação de Cargas:</strong> Grupos de computadores dedicados a tarefas específicas, como apenas armazenar dados ou apenas processar.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div id="m3-exemplos" class="topic-block">
+            <h3>Exemplos de Uso</h3>
+            <div class="pill-grid"><span class="pill">Armazenamento de arquivos</span><span class="pill">E-mail</span><span class="pill">Editores online</span><span class="pill">Streaming</span><span class="pill">Servidores de aplicações</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MÓDULO 4 -->
+      <section id="modulo4" class="page-content">
+        <div class="content-wrapper">
+          <p class="section-kicker">Módulo 04</p>
+          <h2>Como o software dá instruções</h2>
+          <p class="section-intro">O software é o "motorista" que orienta o hardware. Ele inclui desde o sistema operacional até os programas que rodam na nuvem.</p>
+          
+          <div id="m4-so" class="topic-block">
+            <h3>Sistema Operacional</h3>
+            <div class="grid-2">
+              <article class="card"><h4>Funções</h4><ul class="list"><li>Gerenciar processos e memória</li><li>Controlar periféricos e drivers</li><li>Organizar arquivos e pastas</li><li>Oferecer interface ao usuário</li><li>Aplicar segurança e permissões</li></ul></article>
+              <article class="card"><h4>Exemplos de Sistemas</h4><ul class="list"><li>Windows (desktop)</li><li>macOS (desktop)</li><li>Linux (servidores e desktop)</li><li>Android e iOS (móvel)</li></ul></article>
+            </div>
+          </div>
+
+          <div id="m4-arquivos" class="topic-block">
+            <h3>Arquivos e Pastas</h3>
+            <div class="grid-2">
+              <article class="card"><h4>Organização</h4><p>Pastas agrupam arquivos por assunto. Uma estrutura clara facilita encontrar, mover e fazer backup de documentos.</p></article>
+              <article class="card">
+                <h4>Extensões Comuns</h4>
+                <p style="font-size: 0.8rem; margin-bottom: 10px;">Clique em uma extensão para saber mais:</p>
+                <div class="ext-grid">
+                  <button class="ext" data-ext="docx"><strong>.docx</strong> documento</button>
+                  <button class="ext" data-ext="xlsx"><strong>.xlsx</strong> planilha</button>
+                  <button class="ext" data-ext="pdf"><strong>.pdf</strong> portátil</button>
+                  <button class="ext" data-ext="jpg"><strong>.jpg</strong> imagem</button>
+                  <button class="ext" data-ext="mp4"><strong>.mp4</strong> vídeo</button>
+                  <button class="ext" data-ext="zip"><strong>.zip</strong> compactado</button>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div id="m4-nuvem" class="topic-block">
+            <h3>Software local vs Software na Nuvem</h3>
+            <p class="section-intro">Clique nos botões abaixo para ver como os dados viajam em cada tipo de software.</p>
+            
+            <div class="sim-controls">
+              <button class="btn btn-primary" id="btnLocal" style="margin-right: 10px;">Executar Local</button>
+              <button class="btn btn-ghost" id="btnCloud">Executar na Nuvem</button>
+            </div>
+
+            <div class="sim-container" id="simContainer">
+              <div class="sim-device local-pc" id="simLocalPc">
+                <span class="sim-label">Seu Computador</span>
+                <div class="sim-chip">CPU</div>
+              </div>
+              
+              <div class="sim-path" id="simPath">
+                <div class="sim-dot" id="simDot"></div>
+                <span class="sim-net-label">Internet</span>
+              </div>
+
+              <div class="sim-cloud-server" id="simCloudServer">
+                <span class="sim-label">Servidor na Nuvem</span>
+                <div class="sim-chip">Processamento</div>
+              </div>
+            </div>
+
+            <div class="sim-status" id="simStatus">Aguardando execução...</div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- MÓDULO 5 -->
+      <section id="modulo5" class="page-content">
+        <div class="content-wrapper">
+          <p class="section-kicker">Módulo 05</p>
+          <h2>Identidade e Segurança</h2>
+          <p class="section-intro">Proteja seus dados e garanta que apenas pessoas autorizadas acessem os sistemas de computador.</p>
+          
+          <div id="m5-identidade" class="topic-block">
+            <h3>Identidade Digital</h3>
+            <article class="card">
+              <p>Sua representação no mundo virtual. Inclui logins, senhas e dados pessoais que provam quem você é ao acessar sistemas.</p>
+              <ul class="list">
+                <li>Autenticação (Login)</li>
+                <li>Senhas fortes</li>
+                <li>Autenticação de dois fatores (2FA)</li>
+              </ul>
+            </article>
+          </div>
+
+          <div id="m5-seguranca" class="topic-block">
+            <h3>Segurança e Força da Senha</h3>
+            <p class="section-intro">Criar senhas fortes é a primeira linha de defesa. Digite uma senha abaixo para testar a força dela:</p>
+            
+            <div class="card" style="max-width: 500px; margin-bottom: 24px;">
+              <label class="range-label" for="passInput">Digite uma senha de teste:</label>
+              <input type="text" id="passInput" class="input-text" placeholder="Ex: senha123" autocomplete="off">
+              <div class="pass-meter-bar">
+                <div class="pass-meter-fill" id="passMeter"></div>
+              </div>
+              <p class="pass-status" id="passStatus">Aguardando senha...</p>
+            </div>
+
+            <article class="card">
+              <p>Além da senha, práticas como <strong>Criptografia de dados</strong>, <strong>Firewalls</strong> e <strong>Backups</strong> protegem contra acessos não autorizados.</p>
+              <div class="callout">
+                <span class="callout-label">O que é SSO?</span>
+                <p>Single Sign-On (Conexão Única) permite usar uma conta de um serviço (ex: Google) para entrar em outro serviço (ex: Spotify). O sistema confia na identidade já verificada.</p>
+              </div>
+            </article>
+            <img src="img/cadeado.png" alt="Cadeado de Segurança Digital" class="img-real">
+          </div>
+
+          <div id="m5-futuro" class="topic-block">
+            <h3>O Futuro: Biometria</h3>
+            <p class="section-intro">Senhas podem ser roubadas. Por isso, a biometria (uso de características biológicas únicas) está crescendo.</p>
+            <div class="grid-2">
+              <article class="card">
+                <h4>Biometria Comum</h4>
+                <ul class="list">
+                  <li>Impressão digital</li>
+                  <li>Reconhecimento facial</li>
+                  <li>Reconhecimento de voz</li>
+                  <li>Padrão do globo ocular</li>
+                </ul>
+              </article>
+              <article class="card">
+                <h4>Futuro: Análise de Marcha</h4>
+                <p>Sistemas com Inteligência Artificial (IA) analisam a forma como você caminha para identificar você unicamente pelos seus padrões de movimento.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        <div class="content-wrapper footer-inner">
+          <span>Fundamentos de Informática · Curso Completo</span>
+          <span class="footer-sep" aria-hidden="true"></span>
+          <span>Material de apoio visual</span>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <!-- MODAL DE EXTENSÕES -->
+  <div class="modal-overlay" id="extModal">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose" aria-label="Fechar modal">&times;</button>
+      <div class="modal-icon" id="modalIcon">.ext</div>
+      <h3 class="modal-title" id="modalTitle">Título</h3>
+      <p class="modal-desc" id="modalDesc">Descrição...</p>
+      <div class="modal-extra">
+        <strong>Exemplo de uso:</strong>
+        <span id="modalExample">...</span>
+      </div>
+    </div>
+  </div>
+
+  <button class="back-top" id="backTop" aria-label="Voltar ao topo" title="Voltar ao topo">
+    <span aria-hidden="true"></span>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
