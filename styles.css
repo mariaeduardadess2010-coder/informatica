@@ -106,10 +106,10 @@ h4 { font-size: 1.05rem; font-weight: 600; margin-bottom: 10px; }
 
 .img-card { 
   width: 100%; 
-  height: 200px; /* Aumentei a altura para ficar mais quadrada */
-  object-fit: contain; /* Faz a imagem inteira caber sem cortar */
-  background: var(--bg-alt); /* Adiciona um fundo escuro sutil caso a imagem seja transparente */
-  padding: 10px; /* Dá um respiro para a imagem não colar nas bordas */
+  height: 200px; 
+  object-fit: contain; 
+  background: var(--bg-alt); 
+  padding: 10px; 
   border-radius: 8px; 
   margin-top: 16px; 
   border: 1px solid var(--border-strong); 
@@ -256,18 +256,24 @@ input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 20px;
 .sidebar-overlay.active { display: block; opacity: 1; }
 
 @media (max-width: 1024px) {
-  /* CORREÇÃO DO MENU MOBILE: Remove o desfoque e deixa o fundo 100% sólido */
+  /* FORÇA A SIDEBAR A SER SÓLIDA E FICAR ACIMA DE TUDO NO MOBILE */
   .sidebar { 
     position: fixed; 
     left: 0; 
     top: 0; 
     bottom: 0; 
     transform: translateX(-100%); 
-    background: #0d1420; /* Cor sólida, sem transparência */
-    backdrop-filter: none; /* Desativa o desfoque no celular */
-    -webkit-backdrop-filter: none;
+    background: #0d1420 !important; /* Fundo 100% sólido */
+    backdrop-filter: none !important; /* Remove o desfoque */
+    -webkit-backdrop-filter: none !important;
+    z-index: 9999 !important; /* Fica acima de tudo */
+    box-shadow: 5px 0 15px rgba(0,0,0,0.5);
   }
   .sidebar.open { transform: none; }
+  
+  /* Desativa as animações pesadas das formas de fundo no celular */
+  .shape { animation: none !important; opacity: 0.3 !important; }
+  
   .mobile-toggle { display: flex; }
   .progress-bar { left: 0; }
   .content-wrapper { padding: 0 24px; }
