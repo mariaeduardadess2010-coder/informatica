@@ -257,40 +257,41 @@ input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 20px;
 .sidebar-overlay.active { display: block; opacity: 1; }
 
 @media (max-width: 1024px) {
-  /* A BALA DE PRATA PARA O MOBILE */
+  /* A CURA DEFINITIVA PARA O MOBILE */
   .sidebar { 
     position: fixed; 
     left: 0; 
     top: 0; 
     bottom: 0; 
     
-    /* Desativa animação para evitar bugs de renderização de texto no celular */
+    /* Sem animação (evita bugs de renderização) */
     transition: none !important; 
     transform: translate3d(-100%, 0, 0) !important; 
     
-    /* Fundo sólido 100% escuro (sem transparência) */
+    /* Força fundo SÓLIDO e TEXTO CLARO */
     background-color: #0d1420 !important; 
+    color: #e6edf5 !important;
+    -webkit-text-fill-color: #e6edf5 !important;
     
-    /* Remove o vidro fosco */
     backdrop-filter: none !important; 
     -webkit-backdrop-filter: none !important;
     
-    /* Joga o menu para a camada mais alta do site, acima de qualquer outro elemento */
     z-index: 99999 !important; 
   }
   
+  /* Força os links internos a terem cor clara (ignora o fundo) */
+  .sidebar a, .sidebar span, .sidebar button {
+    color: #e6edf5 !important;
+    -webkit-text-fill-color: #e6edf5 !important;
+  }
+
   .sidebar.open { 
     transform: translate3d(0, 0, 0) !important; 
   }
   
-  /* Desativa as bolas de fundo no celular para não bugar a placa de vídeo */
+  /* Desativa as bolas de fundo no celular */
   .bg-shapes { display: none !important; } 
-  
-  .sidebar-overlay { 
-    backdrop-filter: none !important; 
-    background: rgba(0,0,0,0.8) !important; 
-    z-index: 99998 !important; 
-  }
+  .sidebar-overlay { backdrop-filter: none !important; background: rgba(0,0,0,0.8) !important; z-index: 99998 !important; }
   
   .mobile-toggle { display: flex; }
   .progress-bar { left: 0; }
