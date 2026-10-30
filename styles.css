@@ -256,23 +256,29 @@ input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 20px;
 .sidebar-overlay.active { display: block; opacity: 1; }
 
 @media (max-width: 1024px) {
-  /* FORÇA A SIDEBAR A SER SÓLIDA E FICAR ACIMA DE TUDO NO MOBILE */
+  /* CORREÇÃO DEFINITIVA PARA CELULAR */
   .sidebar { 
     position: fixed; 
     left: 0; 
     top: 0; 
     bottom: 0; 
     transform: translateX(-100%); 
-    background: #0d1420 !important; /* Fundo 100% sólido */
-    backdrop-filter: none !important; /* Remove o desfoque */
+    background-color: #0d1420 !important; /* Cor SÓLIDA */
+    backdrop-filter: none !important; 
     -webkit-backdrop-filter: none !important;
-    z-index: 9999 !important; /* Fica acima de tudo */
-    box-shadow: 5px 0 15px rgba(0,0,0,0.5);
+    z-index: 9999 !important;
+    /* Hack para forçar renderização nativa sem borrões no mobile */
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
   }
-  .sidebar.open { transform: none; }
+  .sidebar.open { 
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); 
+  }
   
-  /* Desativa as animações pesadas das formas de fundo no celular */
-  .shape { animation: none !important; opacity: 0.3 !important; }
+  /* Desativa desfoques e animações pesadas no fundo */
+  .bg-shapes { display: none !important; } 
+  .sidebar-overlay { backdrop-filter: none !important; background: rgba(0,0,0,0.8) !important; }
   
   .mobile-toggle { display: flex; }
   .progress-bar { left: 0; }
@@ -285,6 +291,7 @@ input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 20px;
   .sim-net-label { top: 50%; left: 20px; transform: translateY(-50%); }
   .sim-dot { top: 0; left: 50%; transform: translate(-50%, -50%); }
 }
+
 @media (max-width: 600px) {
   .hero-stats { flex-direction: column; gap: 24px; }
   .grid-2 { grid-template-columns: 1fr; }
