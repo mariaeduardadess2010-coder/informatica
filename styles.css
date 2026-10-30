@@ -321,6 +321,24 @@ input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 20px;
 .shape-4 { width: 300px; height: 300px; top: 65%; left: 5%; background: radial-gradient(circle, rgba(34, 211, 238, 0.2) 0%, rgba(34, 211, 238, 0) 70%); animation: float4 28s ease-in-out infinite alternate; }
 
 @keyframes float1 { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(40px, 30px) scale(1.05); } }
+
+/* ================= EFEITO DE DESFOQUE AO SEGURAR TECLA ================= */
+.main-content {
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+/* Classe que será ativada pelo JS */
+body.is-focusing .main-content {
+  filter: blur(8px); /* Ajuste o nível de desfoque aqui */
+  transform: scale(0.98); /* Efeito sutil de "afastamento" */
+  pointer-events: none; /* Evita cliques acidentais enquanto desfocado */
+}
+
+/* Desfoque também no título e nas barras para dar imersão */
+body.is-focusing .sidebar {
+  filter: blur(4px);
+  opacity: 0.5;
+}
 @keyframes float2 { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(-50px, -40px) scale(1.03); } }
 @keyframes float3 { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(-30px, 50px) scale(1.08); } }
 @keyframes float4 { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(30px, -30px) scale(1.04); } }
