@@ -6,6 +6,7 @@
   --ok:#34d399;--warn:#fbbf24;--err:#f87171;--radius:14px;--font:'Inter',system-ui,sans-serif;
   --mono:'JetBrains Mono','Courier New',monospace;
   --sidebar-w: 300px;
+  color-scheme: dark;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;}
@@ -103,18 +104,7 @@ h4 { font-size: 1.05rem; font-weight: 600; margin-bottom: 10px; }
 
 /* ================= IMAGENS ================= */
 .img-real { width: 100%; max-height: 400px; object-fit: cover; border-radius: var(--radius); border: 1px solid var(--border-strong); display: block; margin: 24px auto 0; }
-
-.img-card { 
-  width: 100%; 
-  height: 200px; 
-  object-fit: contain; 
-  background: var(--bg-alt); 
-  padding: 10px; 
-  border-radius: 8px; 
-  margin-top: 16px; 
-  border: 1px solid var(--border-strong); 
-  display: block; 
-}
+.img-card { width: 100%; height: 200px; object-fit: contain; background: var(--bg-alt); padding: 10px; border-radius: 8px; margin-top: 16px; border: 1px solid var(--border-strong); display: block; }
 
 /* ================= TABELAS ================= */
 .data-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
@@ -256,27 +246,22 @@ input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 20px;
 .sidebar-overlay.active { display: block; opacity: 1; }
 
 @media (max-width: 1024px) {
-  /* CORREÇÃO DEFINITIVA PARA CELULAR */
   .sidebar { 
     position: fixed; 
     left: 0; 
     top: 0; 
     bottom: 0; 
-    transform: translateX(-100%); 
-    background-color: #0d1420 !important; /* Cor SÓLIDA */
+    transform: translate3d(-100%, 0, 0) !important; 
+    background-color: #0d1420 !important; 
     backdrop-filter: none !important; 
     -webkit-backdrop-filter: none !important;
     z-index: 9999 !important;
-    /* Hack para forçar renderização nativa sem borrões no mobile */
-    -webkit-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0);
+    -webkit-text-fill-color: initial !important; 
   }
   .sidebar.open { 
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0); 
+    transform: translate3d(0, 0, 0) !important; 
   }
   
-  /* Desativa desfoques e animações pesadas no fundo */
   .bg-shapes { display: none !important; } 
   .sidebar-overlay { backdrop-filter: none !important; background: rgba(0,0,0,0.8) !important; }
   
